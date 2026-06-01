@@ -29,7 +29,7 @@ export default function AboutUs() {
                 fontFamily: "'Nunito', 'Segoe UI', sans-serif",
                 background: "linear-gradient(160deg, #f8faff 0%, #ffffff 50%, #f3f7f2 100%)",
                 minHeight: "100vh",
-                color: "#1a1a2e",
+                color: "#0f4254",
             }}
         >
             <style>{`
@@ -37,7 +37,7 @@ export default function AboutUs() {
 
         .cce-hero-badge {
           display: inline-block;
-          background: linear-gradient(135deg, #0f6e56 0%, #1d9e75 100%);
+          background: linear-gradient(135deg, #38bbeb 0%, #1d9e75 100%);
           color: white;
           font-size: 12px;
           font-weight: 700;
@@ -63,7 +63,7 @@ export default function AboutUs() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 4px;
-          background: linear-gradient(90deg, #1d9e75, #0f6e56);
+          background: linear-gradient(90deg, #1d9e75, #38bbeb);
           border-radius: 20px 20px 0 0;
         }
         .cce-stat-card:hover {
@@ -89,14 +89,14 @@ export default function AboutUs() {
           box-shadow: 0 8px 24px rgba(15,110,86,0.10);
         }
         .cce-course-chip:hover .chip-label {
-          color: #0f6e56;
+          color: #38bbeb;
         }
 
         .cce-value-card {
           background: white;
           border-radius: 18px;
           padding: 28px 24px;
-          border: 4px solid #0f6e56;
+          border: 4px solid #38bbeb;
           display: flex;
           flex-direction: column;
           gap: 10px;
@@ -117,7 +117,7 @@ export default function AboutUs() {
 
         .cce-cta-btn {
           display: inline-block;
-          background: linear-gradient(135deg, #0f6e56 0%, #1d9e75 100%);
+          background: linear-gradient(135deg, #38bbeb 0%, #1d9e75 100%);
           color: white;
           font-weight: 800;
           font-size: 15px;
@@ -136,7 +136,7 @@ export default function AboutUs() {
         .cce-outline-btn {
           display: inline-block;
           background: white;
-          color: #0f6e56;
+          color: #38bbeb;
           font-weight: 700;
           font-size: 15px;
           padding: 15px 36px;
@@ -170,7 +170,7 @@ export default function AboutUs() {
             >
                 {/* decorative blobs */}
                 <div className="decorative-circle" style={{ width: 420, height: 420, background: "#1d9e75", top: -140, right: -80 }} />
-                <div className="decorative-circle" style={{ width: 280, height: 280, background: "#0f6e56", bottom: -80, left: -60 }} />
+                <div className="decorative-circle" style={{ width: 280, height: 280, background: "#38bbeb", bottom: -80, left: -60 }} />
 
                 <div className="cce-hero-badge">Kanpur's Trusted Learning Hub</div>
 
@@ -207,7 +207,7 @@ export default function AboutUs() {
             {/* ── STATS ── */}
             <section
                 style={{
-                    background: "linear-gradient(135deg, #0a2e24 0%, #0f6e56 100%)",
+                    background: "linear-gradient(135deg, #0a2e24 0%, #38bbeb 100%)",
                     padding: "52px 24px",
                 }}
             >
@@ -226,7 +226,7 @@ export default function AboutUs() {
                                 style={{
                                     fontSize: "clamp(28px, 5vw, 38px)",
                                     fontWeight: 900,
-                                    color: "#0f6e56",
+                                    color: "#38bbeb",
                                     lineHeight: 1.1,
                                     marginBottom: 6,
                                 }}
@@ -322,13 +322,13 @@ export default function AboutUs() {
                     }}
                 >
                     {courses.map((c) => (
-                        <div className="cce-course-chip sm:border-4 border-[#0f6e56]" key={c.id}>
+                        <div className="cce-course-chip sm:border-4 border-[#38bbeb]" key={c.id}>
                             <div>
                                 <div className="chip-label" style={{ fontWeight: 700, fontSize: 14, color: "#0a2e24", transition: "color 0.2s" }}>
                                     {c.label}
                                 </div>
                                 <div style={{ fontSize: 11, color: "#8aab9b", fontWeight: 600 }}>{c.category}</div>
-                                <button style={{ fontWeight: 700, fontSize: 14, backgroundColor: "#0f6e56", transition: "color 0.2s" }} className="px-2 text-white cursor-pointer rounded-2xl"><Link to={`/course/${c.id}`}>View</Link></button>
+                                <button style={{ fontWeight: 700, fontSize: 14, backgroundColor: "#38bbeb", transition: "color 0.2s" }} className="px-2 text-white cursor-pointer rounded-2xl"><Link to={`/course/${c.id}`}>View</Link></button>
                             </div>
                         </div>
                     ))}
@@ -341,7 +341,7 @@ export default function AboutUs() {
                     style={{
                         maxWidth: 1080,
                         margin: "0 auto",
-                        background: "linear-gradient(135deg, #0a2e24 0%, #0f6e56 60%, #1d9e75 100%)",
+                        background: "linear-gradient(135deg, #0a2e24 0%, #38bbeb 60%, #1d9e75 100%)",
                         borderRadius: 28,
                         padding: "56px 40px",
                         display: "flex",
@@ -355,7 +355,7 @@ export default function AboutUs() {
                 >
                     <div className="decorative-circle" style={{ width: 300, height: 300, background: "white", top: -120, right: 40 }} />
                     <div>
-                        <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "2px", color: "#9fe1cb", textTransform: "uppercase", marginBottom: 10 }}>
+                        <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "2px", color: "#0f4254", textTransform: "uppercase", marginBottom: 10 }}>
                             Join 5000+ Alumni
                         </div>
                         <h2
@@ -374,7 +374,7 @@ export default function AboutUs() {
                     </div>
                     <button
                         className="cce-cta-btn"
-                        style={{ background: "white", color: "#0f6e56", flexShrink: 0 }}
+                        style={{ background: "white", color: "#38bbeb", flexShrink: 0 }}
                     >
                         <Link to={"/form"}> Start Your Journey →</Link>
                     </button>

@@ -8,7 +8,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 w-full z-50 bg-white backdrop-blur-md border-b border-[#0f6e56]">
+            <nav className="fixed top-0 w-full z-50 bg-white backdrop-blur-md border-b border-[#38bbeb]">
                 <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
                     {/* Logo */}
@@ -22,7 +22,7 @@ export default function Navbar() {
                             <Link
                                 key={item}
                                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                                className="text-black hover:text-[#0f6e56] text-sm  md:text-lg md:font-bold md:text-shadow-2xs text-blue-red-600 font-medium tracking-wide transition-colors duration-200 hover:text-[#0f6e56]"
+                                className="text-black hover:text-[#38bbeb] text-sm  md:text-lg md:font-bold md:text-shadow-2xs text-blue-red-600 font-medium tracking-wide transition-colors duration-200 hover:text-[#38bbeb]"
                             >
                                 {item}
                             </Link>
@@ -33,7 +33,7 @@ export default function Navbar() {
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => setOpen(true)}
-                            className="bg-[#0f6e56]  text-white text-sm font-semibold px-5 py-2 rounded-md transition-all duration-200 hover:scale-105 active:scale-95"
+                            className="bg-[#38bbeb]  text-white text-sm font-semibold px-5 py-2 rounded-md transition-all duration-200 hover:scale-105 active:scale-95"
                         >
                             Apply Now
                         </button>

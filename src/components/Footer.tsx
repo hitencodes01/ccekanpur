@@ -38,13 +38,13 @@ export default function Footer() {
           </ul>
         </div>
         <div className="flex flex-col gap-3">
-          <h1 className="text-white font-bold hover:text-[#0f6e56]">
+          <h1 className="text-white font-bold hover:text-[#38bbeb]">
             <Link to="tel:+919026907907">
               <PhoneCallIcon className="inline" /> +919026907907
             </Link>
           </h1>
 
-          <h1 className="text-white font-bold hover:text-[#0f6e56]">
+          <h1 className="text-white font-bold hover:text-[#38bbeb]">
             <Link to="mailto:cceknp@gmail.com">
               <MailIcon className="inline" /> cceknp@gmail.com
             </Link>
@@ -53,7 +53,7 @@ export default function Footer() {
           <p>
             <Link
               to="https://www.instagram.com/cceonline"
-              className="text-white hover:text-[#0f6e56]"
+              className="text-white hover:text-[#38bbeb]"
             >
               Instagram
             </Link>

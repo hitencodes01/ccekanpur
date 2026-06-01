@@ -1,4 +1,4 @@
-import {  createHashRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import About from "./About";
 import Courses from "./Courses";
 import Contact from "./Contact";
@@ -18,5 +18,5 @@ export const route = createHashRouter([{
     element: <Contact />
 }
 ],
-   )
+)
 

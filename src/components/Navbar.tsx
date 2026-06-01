@@ -13,7 +13,7 @@ export default function Navbar() {
 
                     {/* Logo */}
                     <Link to="/">
-                        <img src="/logo.jpeg" height={48} width={48} alt="CCE Logo" className="rounded-sm" />
+                        <img src="logo.jpeg" height={48} width={48} alt="CCE Logo" className="rounded-sm" />
                     </Link>
 
                     {/* Desktop Links */}

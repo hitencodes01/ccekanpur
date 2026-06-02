@@ -3,6 +3,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HeroSection from './components/HeroSection'
 import AboutUs from './components/AboutUs'
+import ISOBanner from './components/ISOBanner'
+import Gallery from './components/Gallery'
 
 function App() {
   const [mounted, setMounted] = useState(false)
@@ -16,7 +18,9 @@ function App() {
     <>
       <Navbar />
       <HeroSection mounted={mounted} />
+      <ISOBanner/>
       <AboutUs/>
+      <Gallery/>
       <Footer />
     </>
   )

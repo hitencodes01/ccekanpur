@@ -8,13 +8,13 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 w-full z-50 bg-white backdrop-blur-md border-b border-[#38bbeb]">
+            <nav className="fixed top-0 w-full z-50 bg-white backdrop-blur-md  border-b-2 border-[#38bbeb]">
                 <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
                     {/* Logo */}
-                    <Link to="/">
-                        <img src="logo.jpeg" height={48} width={48} alt="CCE Logo" className="rounded-sm" />
-                    </Link>
+                    <div>
+                        <img src="logo.jpeg" height={48} width={48} alt="CCE Logo" className="rounded-sm sm:h-15 sm:w-30" />
+                    </div>
 
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-8">
@@ -26,7 +26,14 @@ export default function Navbar() {
                             >
                                 {item}
                             </Link>
+
                         ))}
+                        <Link
+                            to={"/certificateVerification"}
+                            className="text-black hover:text-[#38bbeb] text-sm  md:text-lg md:font-bold md:text-shadow-2xs text-blue-red-600 font-medium tracking-wide transition-colors duration-200 hover:text-[#38bbeb]"
+                        >
+                            Certificate Verification
+                        </Link>
                     </div>
 
                     {/* Apply Button + Mobile Menu */}
@@ -53,16 +60,22 @@ export default function Navbar() {
                 {/* Mobile Menu */}
                 {menuOpen && (
                     <div className="md:hidden bg-black/90 border-t border-white/10 px-4 py-4 flex flex-col gap-4">
-                        {["Home", "About", "Courses", "Contact"].map((item) => (
+                        {["Home", "About", "Courses", "Contact", "Certificate Verification"].map((item) => (
                             <Link
                                 key={item}
                                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                                className="text-white/80 hover:text-red-800 text-sm font-medium transition-colors"
+                                className="text-white/80 hover:text-[#38bbeb] text-sm font-medium transition-colors"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {item}
                             </Link>
                         ))}
+                        <Link
+                            to={"/certificateVerification"}
+                            className="text-black hover:text-[#38bbeb] text-sm  md:text-lg md:font-bold md:text-shadow-2xs text-blue-red-600 font-medium tracking-wide transition-colors duration-200 hover:text-[#38bbeb]"
+                        >
+                            Certificate Verification
+                        </Link>
                     </div>
                 )}
             </nav>

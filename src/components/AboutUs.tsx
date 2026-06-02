@@ -1,3 +1,4 @@
+import CourseGallery from "@/CourseGallery";
 import { Link } from "react-router-dom";
 
 export default function AboutUs() {
@@ -29,7 +30,7 @@ export default function AboutUs() {
                 fontFamily: "'Nunito', 'Segoe UI', sans-serif",
                 background: "linear-gradient(160deg, #f8faff 0%, #ffffff 50%, #f3f7f2 100%)",
                 minHeight: "100vh",
-                color: "#0f4254",
+                color: "#38bbeb",
             }}
         >
             <style>{`
@@ -53,7 +54,7 @@ export default function AboutUs() {
           border-radius: 20px;
           padding: 28px 20px;
           text-align: center;
-          border: 1.5px solid #e8f5f0;
+          border: 1.5px solid #38bbeb;
           transition: transform 0.25s ease, box-shadow 0.25s ease;
           position: relative;
           overflow: hidden;
@@ -68,7 +69,7 @@ export default function AboutUs() {
         }
         .cce-stat-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 16px 40px rgba(15,110,86,0.12);
+          box-shadow: 0 16px 40px hex(#38bbeb);
         }
 
         .cce-course-chip {
@@ -84,7 +85,7 @@ export default function AboutUs() {
         }
         .cce-course-chip:hover {
           background: #f0faf6;
-          border-color: #1d9e75;
+          border-color: #38bbeb;
           transform: translateY(-2px);
           box-shadow: 0 8px 24px rgba(15,110,86,0.10);
         }
@@ -111,7 +112,7 @@ export default function AboutUs() {
           font-weight: 700;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          color: #1d9e75;
+          color: #38bbeb;
           margin-bottom: 10px;
         }
 
@@ -169,7 +170,7 @@ export default function AboutUs() {
                 }}
             >
                 {/* decorative blobs */}
-                <div className="decorative-circle" style={{ width: 420, height: 420, background: "#1d9e75", top: -140, right: -80 }} />
+                <div className="decorative-circle" style={{ width: 420, height: 420, background: "#38bbeb", top: -140, right: -80 }} />
                 <div className="decorative-circle" style={{ width: 280, height: 280, background: "#38bbeb", bottom: -80, left: -60 }} />
 
                 <div className="cce-hero-badge">Kanpur's Trusted Learning Hub</div>
@@ -186,7 +187,7 @@ export default function AboutUs() {
                     }}
                 >
                     Learn Today,{" "}
-                    <em style={{ color: "#1d9e75", fontStyle: "italic" }}>Lead Tomorrow.</em>
+                    <em style={{ color: "#38bbeb", fontStyle: "italic" }}>Lead Tomorrow.</em>
                 </h1>
 
                 <p
@@ -294,6 +295,7 @@ export default function AboutUs() {
             </section>
 
             {/* ── COURSES ── */}
+            
             <section style={{ maxWidth: 1080, margin: "0 auto", padding: "72px 24px" }}>
                 <div style={{ textAlign: "center", marginBottom: 44 }}>
                     <div className="cce-section-label" style={{ textAlign: "center" }}>What We Teach</div>
@@ -313,7 +315,7 @@ export default function AboutUs() {
                         for every goal and every stage.
                     </p>
                 </div>
-
+             <CourseGallery css={"mt-1"}/>
                 <div
                     style={{
                         display: "grid",

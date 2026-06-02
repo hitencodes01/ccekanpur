@@ -43,11 +43,11 @@ export default function HeroSection({ mounted }: { mounted: boolean }) {
         .btn-courses svg { transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
         .btn-courses:hover svg { transform: translateX(4px); }
       `}</style>
-      <div className="relative w-full h-150 bg-black overflow-hidden">
+      <div className="relative w-full h-130 sm:h-150 bg-black overflow-hidden">
         <div className="absolute inset-0">
             <Threads amplitude={1} distance={0} enableMouseInteraction />
         </div>
-        <div className="w-full absolute top-1/2 -translate-y-1/2 left-6 sm:left-16 right-6 sm:right-16 max-w-xl flex flex-col gap-4 z-10">
+        <div className="w-full absolute top-1/2 -translate-y-1/2 left-3 sm:left-16 right-6 sm:right-16 max-w-xl flex flex-col gap-4 z-10">
 
             {/* eyebrow */}
             <p className={`text-amber-400 text-xs tracking-[0.25em] uppercase font-light opacity-0 ${mounted ? 'anim-tag' : ''}`}>
@@ -65,7 +65,7 @@ export default function HeroSection({ mounted }: { mounted: boolean }) {
             </h1>
 
             {/* subtext */}
-            <p className={`text-white/55 text-base font-light leading-relaxed max-w-sm opacity-0 ${mounted ? 'anim-sub' : ''}`}>
+            <p className={`text-white text-base font-light leading-relaxed max-w-sm opacity-0 ${mounted ? 'anim-sub' : ''}`}>
                 Empowering the next generation of digital thinkers — from foundational skills to advanced computing.
             </p>
 

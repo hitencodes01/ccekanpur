@@ -60,7 +60,7 @@ export default function Navbar() {
                 {/* Mobile Menu */}
                 {menuOpen && (
                     <div className="md:hidden bg-black/90 border-t border-white/10 px-4 py-4 flex flex-col gap-4">
-                        {["Home", "About", "Courses", "Contact", "Certificate Verification"].map((item) => (
+                        {["Home", "About", "Courses", "Contact"].map((item) => (
                             <Link
                                 key={item}
                                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -72,7 +72,7 @@ export default function Navbar() {
                         ))}
                         <Link
                             to={"/certificateVerification"}
-                            className="text-black hover:text-[#38bbeb] text-sm  md:text-lg md:font-bold md:text-shadow-2xs text-blue-red-600 font-medium tracking-wide transition-colors duration-200 hover:text-[#38bbeb]"
+                            className="text-white/80 hover:text-[#38bbeb] text-sm  md:text-lg md:font-bold md:text-shadow-2xs text-blue-red-600 font-medium tracking-wide transition-colors duration-200 hover:text-[#38bbeb]"
                         >
                             Certificate Verification
                         </Link>

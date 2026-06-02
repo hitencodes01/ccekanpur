@@ -62,7 +62,7 @@ export default function Footer() {
                 <InstagramIcon />
               </Link>
               <Link
-                to="https://www.facebook.com/cceonline"
+                to="https://www.facebook.com/cceknp"
                 className="p-2 rounded-full bg-white/10 hover:bg-purple-500/40 text-white hover:text-[#38bbeb] transition-all duration-200"
                 aria-label="Facebook"
               >

@@ -20,5 +20,9 @@
     <loc>https://ccekanpur.in/contact</loc>
     <priority>0.7</priority>
   </url>
+  <Route path="/" />
+<Route path="/about" />
+<Route path="/courses" />
+<Route path="/contact" />
 
 </urlset>

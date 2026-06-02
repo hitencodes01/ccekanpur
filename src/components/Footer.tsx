@@ -134,6 +134,7 @@ export default function Footer() {
         {/* Bottom divider + copyright */}
         <div className="mt-12 pt-5 border-t border-white flex flex-col sm:flex-row justify-between items-center gap-2 text-white text-xs">
           <span>© 2026 CCE. All rights reserved.</span>
+          <Link to={"https://ccekanpur.in/sitemap.xml"}>Sitemap</Link>
           <span className="text-purple-400/60 font-medium tracking-wide">ISO 9001:2015 Certified Institute</span>
         </div>
       </div>

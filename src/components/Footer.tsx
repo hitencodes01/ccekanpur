@@ -82,7 +82,7 @@ export default function Footer() {
                 { label: "About", to: "/about" },
                 { label: "Courses", to: "/courses" },
                 { label: "Contact", to: "/contact" },
-                { label: "Certificate Verification", to: "/certificate-verification" },
+                { label: "Certificate Verification", to: "/certificateVerification" },
               ].map(({ label, to }) => (
                 <li key={to}>
                   <Link

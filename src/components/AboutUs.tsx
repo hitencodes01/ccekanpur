@@ -378,7 +378,7 @@ export default function AboutUs() {
                         className="cce-cta-btn"
                         style={{ background: "white", color: "#38bbeb", flexShrink: 0 }}
                     >
-                        <Link to={"/form"}> Start Your Journey →</Link>
+                        <Link to={"/contact"}> Start Your Journey →</Link>
                     </button>
                 </div>
             </section>

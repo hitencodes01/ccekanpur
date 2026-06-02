@@ -20,10 +20,11 @@ function App() {
       <div className='mt-10'>
         <HeroSection mounted={mounted} />
       </div>
-      <ISOBanner/>
-      <AboutUs/>
-      <Gallery/>
+      <ISOBanner />
+      <AboutUs />
+      <Gallery />
       <Footer />
+      
     </>
   )
 }

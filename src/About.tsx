@@ -6,7 +6,9 @@ export default function About() {
   return (
     <>
       <Navbar />
-      <AboutUs />
+      <div className='mt-16'>
+        <AboutUs />
+      </div>
       <Footer />
     </>
   )

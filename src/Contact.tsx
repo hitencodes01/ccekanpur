@@ -11,16 +11,22 @@ export default function Contact() {
     <div>
       <Navbar />
       {/* middle card */}
-      <div className="flex flex-row justify-center items-center gap-10 bg-black mt-16">
-        {/* logo */}
-        <div>
-          <img src="logo.jpeg" height={200} width={400} alt="" />
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 bg-black mt-16 px-4 py-10">
+        {/* Logo */}
+        <div className="flex justify-center">
+          <img
+            src="logo.jpeg"
+            alt="Centre for Computer Education Logo"
+            className="w-48 sm:w-72 md:w-80 h-auto object-contain"
+          />
         </div>
-        {/*  */}
-        <div className="mt-16 flex flex-col p-4 items-center sm:items-start gap-4">
-          <p className="text-purple-300 text-xl font-bold uppercase tracking-[0.15em] mb-1">
+
+        {/* Contact Section */}
+        <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left">
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif",}} className="text-[#38bbeb] text-xl font-bold uppercase tracking-[0.15em]">
             Contact Us
           </p>
+
           <Link
             to="tel:+919026907907"
             className="flex items-center gap-3 text-white hover:text-[#38bbeb] text-sm transition-colors group"
@@ -30,6 +36,7 @@ export default function Contact() {
             </span>
             +91 90269 07907
           </Link>
+
           <Link
             to="mailto:cceknp@gmail.com"
             className="flex items-center gap-3 text-white hover:text-[#38bbeb] text-sm transition-colors group"
@@ -39,18 +46,22 @@ export default function Contact() {
             </span>
             cceknp@gmail.com
           </Link>
+
           <button
             onClick={() => setOpen(true)}
-            className="bg-[#38bbeb]  text-white text-sm font-semibold px-5 py-2 rounded-md transition-all duration-200 hover:scale-105 active:scale-95"
+            className="bg-[#38bbeb] text-white text-sm font-semibold px-5 py-2 rounded-md transition-all duration-200 hover:scale-105 active:scale-95"
           >
             Apply Now
           </button>
-          <div className="flex items-start gap-3 text-white text-sm">
+
+          <div className="flex items-start gap-3 text-white text-sm max-w-xs">
             <span className="p-2 rounded-full bg-white/10 mt-0.5 shrink-0">
               <MapPinIcon size={14} />
             </span>
-            <span className="leading-relaxed ">
-              05, Mangla Vihar, Near Ramadevi,<br />
+
+            <span className="leading-relaxed">
+              05, Mangla Vihar, Near Ramadevi,
+              <br />
               Kanpur, UP – 208015
             </span>
           </div>

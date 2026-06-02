@@ -17,7 +17,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <HeroSection mounted={mounted} />
+      <div className='mt-10'>
+        <HeroSection mounted={mounted} />
+      </div>
       <ISOBanner/>
       <AboutUs/>
       <Gallery/>

@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const slides = [
     { id: 1, src: "cce1.jpeg", alt: "CCE Gallery 1" },
-    { id: 2, src: "cce2.jpg", alt: "CCE Gallery 1" },
-    { id: 3, src: "cce3.jpg", alt: "CCE Gallery 1" },
-    { id: 4, src: "cce4.jpg", alt: "CCE Gallery 1" },
-    { id: 5, src: "cce5.jpg", alt: "CCE Gallery 1" },
+    { id: 2, src: "cce4.webp", alt: "CCE Gallery 1" },
+    { id: 3, src: "cce3.webp", alt: "CCE Gallery 1" },
+    { id: 4, src: "cce2.webp", alt: "CCE Gallery 1" },
+    { id: 5, src: "cce5.webp", alt: "CCE Gallery 1" },
 ];
 
 export default function Gallery() {
@@ -18,7 +18,7 @@ export default function Gallery() {
         <div className="flex flex-col items-center bg-black w-full sm:w-1/2 mx-auto select-none">
             {/* Slide */}
             <h1 className="font-bold text-xl text-[#38bbeb] p-2">Gallery</h1>
-            <div className="relative w-full overflow-hidden  rounded-xl shadow-lg">
+            <div className="relative w-full overflow-hidden px-6 rounded-xl shadow-lg">
                 <img
                     src={slides[current].src}
                     alt={slides[current].alt}

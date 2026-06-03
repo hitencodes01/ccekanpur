@@ -9,6 +9,8 @@ export interface StudentData {
     DOB: string;
     Course: string;
     "Duration Of Course": string;
+    "Start Date": string;
+    "End Date": string
 }
 
 export type VerifyResult =

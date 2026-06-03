@@ -9,6 +9,9 @@ const fields: { label: string; key: keyof StudentData }[] = [
   { label: "Date of Birth", key: "DOB" },
   { label: "Course", key: "Course" },
   { label: "Duration", key: "Duration Of Course" },
+  { label: "Start Date", key: "Start Date" },
+  { label: "End Date", key: "End Date" },
+
 ];
 
 export default function Form() {
@@ -17,6 +20,7 @@ export default function Form() {
   const [error, setError] = useState<string | null>(null);
   const [student, setStudent] = useState<StudentData | null>(null);
 
+  const dateFields = ["Start Date", "End Date" , "DOB"]
   const handleInput = async () => {
     if (!enrollment.trim()) return;
     setLoading(true);
@@ -164,7 +168,7 @@ export default function Form() {
                 >
                   <span className="text-black text-xs font-medium">{label}</span>
                   <span className="text-[#38bbeb] text-sm font-semibold text-right max-w-[55%] truncate">
-                    {student[key] || "—"}
+                    {dateFields.includes(key) ? new Date(student[key]).toLocaleDateString("en-IN") : student[key] || "—"}
                   </span>
                 </div>
               ))}

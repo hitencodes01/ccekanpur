@@ -108,7 +108,16 @@ export default function Footer() {
               <span className="p-2 rounded-full bg-white/10 group-hover:bg-purple-500/40 transition-all">
                 <PhoneCallIcon size={14} />
               </span>
-              +91 90269 07907
+              +91 9026-907-907
+            </Link>
+            <Link
+              to="tel:+917309807907"
+              className="flex items-center gap-3 text-white hover:text-[#38bbeb] text-sm transition-colors group"
+            >
+              <span className="p-2 rounded-full bg-white/10 group-hover:bg-purple-500/40 transition-all">
+                <PhoneCallIcon size={14} />
+              </span>
+              +91 7309-807-907
             </Link>
             <Link
               to="mailto:cceknp@gmail.com"

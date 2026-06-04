@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start gap-4">
             <div className="flex items-center gap-4">
               <img
-                src="logo.jpeg"
+                src="/logo.jpeg"
                 height={72}
                 width={72}
                 className="shadow-lg"

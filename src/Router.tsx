@@ -4,6 +4,7 @@ import Courses from "./Courses";
 import Contact from "./Contact";
 import App from "./App";
 import CertificateVerification from "./CertificateVerification";
+import CourseDetails from "./CourseDetails";
 
 export const route = createBrowserRouter([{
     path: "/",
@@ -20,6 +21,9 @@ export const route = createBrowserRouter([{
 }, {
     path: "/certificateVerification",
     element: <CertificateVerification />
+}, {
+    path: "/courses/:courseId",
+    element: <CourseDetails />
 }
 ],
 )

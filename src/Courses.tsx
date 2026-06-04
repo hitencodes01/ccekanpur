@@ -1,3 +1,4 @@
+import CourseSection from "./components/CourseSection";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import CourseGallery from "./CourseGallery";
@@ -24,7 +25,8 @@ export default function Courses() {
           <div className="h-1 w-24 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400" />
         </div>
       </div>
-      <CourseGallery css={"mt-0"} />
+      <CourseSection/>
+      {/* <CourseGallery css={"mt-0"} /> */}
       <Footer />
     </div>
   )

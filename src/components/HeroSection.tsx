@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Threads from "./Threads";
 
 export default function HeroSection({ mounted }: { mounted: boolean }) {
+    console.log("hero section")
     return (<>
         <style>{`
         @keyframes fadeUp {

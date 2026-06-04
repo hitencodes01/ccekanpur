@@ -1,31 +1,8 @@
 import { Link } from "react-router-dom";
 
-const courses = [
-  "CCC",
-  "DCA",
-  "PGDCA",
-  "O Level",
-  "Python for Class 11 & 12",
-  "Core Java for Class 11 & 12",
-  "Full C Course for Graduation",
-  "Python Full Course for Graduation",
-  "Full Java Course for Graduation",
-  "Oracle SQL Certification Course",
-  "Tally Prime Certification Course",
-  "Data Analytics",
-  "Advanced Excel",
-  "Hindi Typing Course",
-  "English Typing Course",
-  "Oracle PL/SQL Certification Course",
-  "English Speaking & Personality Development",
+const courses = [{ id: "ccc", name: "CCC", image: "CCC.jpeg" }, { id: "olevel", name: "O Level", image: "OLevel.jpeg" }, { id: "dca", name: "DCA", image: "DCA.jpeg" }, { id: "pgdca", name: "PGDCA", image: "PGDCA.jpeg" }, { id: "python12", name: "Python for Class 11 & 12", image: "Python.jpeg" }, { id: "java12", name: "Core Java for Class 11 & 12", image: "Java.jpeg" }, { id: "c", name: "Full C Course for Graduation", image: "" }, { id: "python", name: "Python Full Course for Graduation", image: "PythonBCA.jpeg" }, { id: "java", name: "Full Java Course for Graduation", image: "" }, { id: "oracleSQL", name: "Oracle SQL Certification Course", image: "" }, { id: "tally", name: "Tally Prime Certification Course", image: "Tally.jpeg" }, { id: "dataAnalytics", name: "Data Analytics", image: "DataAnalytics.jpeg" }, { id: "advExcel", name: "Advanced Excel", image: "AdvancedExcel2.jpeg" }, { id: "hindiEnglishTyping", name: "Hindi & English Typing Course", image: "" }, { id: "oraclePL", name: "Oracle PL/SQL Certification Course", image: "" }, { id: "pdp", name: "English Speaking & Personality Development", image: "EnglishSpeaking.jpeg" }, { id: "graphic", name: "Graphic Designing", image: "GraphicDesign.jpeg" }
 ];
 
-const createSlug = (course : any) =>
-  course
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-");
 
 export default function CourseSection() {
   return (
@@ -46,8 +23,7 @@ export default function CourseSection() {
           </h2>
 
           <p className="mt-4 max-w-2xl mx-auto text-slate-600">
-            Government Registered & NIELIT Approved Centre offering
-            industry-relevant certification programs.
+
           </p>
         </div>
 
@@ -55,7 +31,7 @@ export default function CourseSection() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {courses.map((course, index) => (
             <div
-              key={course}
+              key={course.id}
               className="
                 group
                 relative
@@ -92,17 +68,13 @@ export default function CourseSection() {
 
                 {/* Course Name */}
                 <h3 className="mt-5 text-xl font-bold leading-snug text-slate-900">
-                  {course}
+                  {course.name}
                 </h3>
 
                 {/* Details */}
-                <div className="mt-6 space-y-3">
-                  <p className="text-sm text-slate-600">
-                    Government Registered & NIELIT Approved Centre
-                  </p>
-
+                <div className=" mt-2 space-y-3">
+                  <img className="rounded-2xl" src={`/${course.image}`} height={200} width={150} alt="" />
                   <div className="h-px bg-slate-200" />
-
                   <p className="font-semibold text-[#38bbeb]">
                     Centre for Computer Education
                   </p>
@@ -111,7 +83,7 @@ export default function CourseSection() {
 
               {/* Button */}
               <Link
-                to={`/courses/${createSlug(course)}`}
+                to={`/courses/${course.id}`}
                 className="
                   mt-8
                   flex

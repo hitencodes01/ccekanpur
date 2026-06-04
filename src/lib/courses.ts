@@ -1,20 +1,2 @@
-export const courses = [
-  {
-    id: "ccc",
-    title: "CCC",
-    duration: "3 Months",
-    description: "Course on Computer Concepts"
-  },
-  {
-    id: "dca",
-    title: "DCA",
-    duration: "6 Months",
-    description: "Diploma in Computer Applications"
-  },
-  {
-    id: "pgdca",
-    title: "PGDCA",
-    duration: "1 Year",
-    description: "Post Graduate Diploma in Computer Applications"
-  }
+export const courses = [{ id: "ccc", name: "CCC", image: "CCC.jpeg" }, { id: "olevel", name: "O Level", image: "OLevel.jpeg" }, { id: "dca", name: "DCA", image: "DCA.jpeg" }, { id: "pgdca", name: "PGDCA", image: "PGDCA.jpeg" }, { id: "python12", name: "Python for Class 11 & 12", image: "Python.jpeg" }, { id: "java12", name: "Core Java for Class 11 & 12", image: "Java.jpeg" }, { id: "c", name: "Full C Course for Graduation", image: "" }, { id: "python", name: "Python Full Course for Graduation", image: "PythonBCA.jpeg" }, { id: "java", name: "Full Java Course for Graduation", image: "" }, { id: "oracleSQL", name: "Oracle SQL Certification Course", image: "" }, { id: "tally", name: "Tally Prime Certification Course", image: "Tally.jpeg" }, { id: "dataAnalytics", name: "Data Analytics", image: "DataAnalytics.jpeg" }, { id: "advExcel", name: "Advanced Excel", image: "AdvancedExcel2.jpeg" },  { id: "hindiEnglishTyping", name: "English Typing Course", image: "" }, { id: "oraclePL", name: "Oracle PL/SQL Certification Course", image: "" }, { id: "pdp", name: "English Speaking & Personality Development", image: "EnglishSpeaking.jpeg" }, { id: "graphic", name: "Graphic Designing", image: "GraphicDesign.jpeg" }
 ];

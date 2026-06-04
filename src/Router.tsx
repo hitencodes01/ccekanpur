@@ -4,7 +4,7 @@ import Courses from "./Courses";
 import Contact from "./Contact";
 import App from "./App";
 import CertificateVerification from "./CertificateVerification";
-import CourseDetails from "./CourseDetails";
+import CourseDetails from "./components/CourseDetails";
 
 export const route = createBrowserRouter([{
     path: "/",

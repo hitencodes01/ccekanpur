@@ -1,7 +1,7 @@
 import CourseSection from "./components/CourseSection";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import CourseGallery from "./CourseGallery";
+
 
 export default function Courses() {
   return (
@@ -26,7 +26,6 @@ export default function Courses() {
         </div>
       </div>
       <CourseSection/>
-      {/* <CourseGallery css={"mt-0"} /> */}
       <Footer />
     </div>
   )

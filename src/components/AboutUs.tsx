@@ -1,21 +1,9 @@
 import CourseGallery from "@/CourseGallery";
 import { Link } from "react-router-dom";
+import { courses } from "@/lib/courses";
 
 export default function AboutUs() {
-    const courses = [
-        { id: "oLevel", label: "O Level", icon: "🎓", category: "Government Certified" },
-        { id: "dca", label: "DCA", icon: "💻", category: "Government Certified" },
-        { id: "pgdca", label: "PGDCA", icon: "🏫", category: "Government Certified" },
-        { id: "ccc", label: "CCC", icon: "📋", category: "Government Certified" },
-        { id: "advancedExcel", label: "Advanced Excel", icon: "📊", category: "Office & Tools" },
-        { id: "oracle", label: "Oracle", icon: "🗄️", category: "Database" },
-        { id: "python", label: "Python", icon: "🐍", category: "Programming" },
-        { id: "java", label: "Java", icon: "☕", category: "Programming" },
-        { id: "tally", label: "Tally", icon: "🧾", category: "Accounting" },
-        { id: "englishSpeaking", label: "English Speaking", icon: "🗣️", category: "Communication" },
-        { id: "graphicDesigning", label: "Graphic Designing", icon: "🎨", category: "Creative" },
-        { id: "dataAnalytics", label: "Data Analytics", icon: "📈", category: "Tech" },
-    ];
+
 
     const stats = [
         { value: "5000+", label: "Students Trained" },
@@ -203,6 +191,42 @@ export default function AboutUs() {
                     believe every learner deserves an affordable path to a career they love. Since 2019,
                     we've been equipping students with industry-relevant skills that open real doors.
                 </p>
+
+                <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-8">
+                    {/* ISO */}
+                    <div className="flex items-center gap-4 bg-white border border-slate-200 rounded-xl px-6 py-4 shadow-sm">
+                        <img
+                            src="/iso.png"
+                            alt="ISO 9001:2015 Certified Institute"
+                            className="h-16 w-auto"
+                        />
+                        <div className="text-left">
+                            <h3 className="font-semibold text-slate-900">
+                                ISO 9001:2015 Certified
+                            </h3>
+                            <p className="text-sm text-slate-600">
+                                Quality Management System Certified Institute
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* MSME */}
+                    <div className="flex items-center gap-4 bg-white border border-slate-200 rounded-xl px-6 py-4 shadow-sm">
+                        <img
+                            src="/msme.png"
+                            alt="MSME Registered"
+                            className="h-16 w-auto"
+                        />
+                        <div className="text-left">
+                            <h3 className="font-semibold text-slate-900">
+                                MSME Registered
+                            </h3>
+                            <p className="text-sm text-slate-600">
+                                Ministry of Micro, Small & Medium Enterprises, Govt. of India
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             {/* ── STATS ── */}
@@ -277,6 +301,7 @@ export default function AboutUs() {
                             projects with certification prep so students graduate both <em>skilled</em> and{" "}
                             <em>hirable</em>.
                         </p>
+
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -295,7 +320,7 @@ export default function AboutUs() {
             </section>
 
             {/* ── COURSES ── */}
-            
+
             <section style={{ maxWidth: 1080, margin: "0 auto", padding: "72px 24px" }}>
                 <div style={{ textAlign: "center", marginBottom: 44 }}>
                     <div className="cce-section-label" style={{ textAlign: "center" }}>What We Teach</div>
@@ -315,23 +340,85 @@ export default function AboutUs() {
                         for every goal and every stage.
                     </p>
                 </div>
-             <CourseGallery css={"mt-1"}/>
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-                        gap: 14,
-                    }}
-                >
-                    {courses.map((c) => (
-                        <div className="cce-course-chip sm:border-4 border-[#38bbeb]" key={c.id}>
-                            <div>
-                                <div className="chip-label" style={{ fontWeight: 700, fontSize: 14, color: "#0a2e24", transition: "color 0.2s" }}>
-                                    {c.label}
+                <CourseGallery css={"mt-1"} />
+
+                {/* Grid */}
+
+                <div className="grid mt-5 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {courses.map((course, index) => (
+                        <div
+                            key={course.id}
+                            className="
+                                group
+                                relative
+                                bg-white
+                                rounded-3xl
+                                border
+                                border-[#38bbeb]/20
+                                p-6
+                                min-h-[300px]
+                                flex
+                                flex-col
+                                justify-between
+                                shadow-sm
+                                transition-all
+                                duration-300
+                                hover:-translate-y-2
+                                hover:shadow-2xl
+                                hover:shadow-[#38bbeb]/20
+                                hover:border-[#38bbeb]
+                              "
+                        >
+                            {/* Number Badge */}
+                            <div className="absolute top-4 right-4">
+                                <div className="h-10 w-10 rounded-full bg-[#38bbeb]/10 flex items-center justify-center text-[#38bbeb] font-bold">
+                                    {String(index + 1).padStart(2, "0")}
                                 </div>
-                                <div style={{ fontSize: 11, color: "#8aab9b", fontWeight: 600 }}>{c.category}</div>
-                                <button style={{ fontWeight: 700, fontSize: 14, backgroundColor: "#38bbeb", transition: "color 0.2s" }} className="px-2 text-white cursor-pointer rounded-2xl"><Link to={`/course/${c.id}`}>View</Link></button>
                             </div>
+
+                            <div>
+                                {/* Top Line */}
+                                <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                                    Certification Course
+                                </div>
+
+                                {/* Course Name */}
+                                <h3 className="mt-5 text-xl font-bold leading-snug text-slate-900">
+                                    {course.name}
+                                </h3>
+
+                                {/* Details */}
+                                <div className=" mt-2 space-y-3">
+                                    <img className="rounded-2xl" src={`/${course.image}`} height={200} width={150} alt="" />
+                                    <div className="h-px bg-slate-200" />
+                                    <p className="font-semibold text-[#38bbeb]">
+                                        Centre for Computer Education
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Button */}
+                            <Link
+                                to={`/courses/${course.id}`}
+                                className="
+                                  mt-8
+                                  flex
+                                  items-center
+                                  justify-center
+                                  rounded-xl
+                                  border-2
+                                  border-[#38bbeb]
+                                  py-3
+                                  font-semibold
+                                  text-[#38bbeb]
+                                  transition-all
+                                  duration-300
+                                  hover:bg-[#38bbeb]
+                                  hover:text-white
+                                "
+                            >
+                                View Course
+                            </Link>
                         </div>
                     ))}
                 </div>

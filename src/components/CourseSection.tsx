@@ -22,9 +22,48 @@ export default function CourseSection() {
             Our Certification Courses
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-slate-600">
-
+          <p className="mt-4 max-w-3xl mx-auto text-slate-600">
+            Industry-recognized certification programs designed to enhance practical
+            skills, improve employability, and prepare students for professional
+            success. All courses are offered under a quality-driven learning framework
+            with recognized standards and government-supported initiatives.
           </p>
+
+          <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-8">
+            {/* ISO */}
+            <div className="flex items-center gap-4 bg-white border border-slate-200 rounded-xl px-6 py-4 shadow-sm">
+              <img
+                src="/iso.png"
+                alt="ISO 9001:2015 Certified Institute"
+                className="h-16 w-auto"
+              />
+              <div className="text-left">
+                <h3 className="font-semibold text-slate-900">
+                  ISO 9001:2015 Certified
+                </h3>
+                <p className="text-sm text-slate-600">
+                  Quality Management System Certified Institute
+                </p>
+              </div>
+            </div>
+
+            {/* MSME */}
+            <div className="flex items-center gap-4 bg-white border border-slate-200 rounded-xl px-6 py-4 shadow-sm">
+              <img
+                src="/msme.png"
+                alt="MSME Registered"
+                className="h-16 w-auto"
+              />
+              <div className="text-left">
+                <h3 className="font-semibold text-slate-900">
+                  MSME Registered
+                </h3>
+                <p className="text-sm text-slate-600">
+                  Ministry of Micro, Small & Medium Enterprises, Govt. of India
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Grid */}

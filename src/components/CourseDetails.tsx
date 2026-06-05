@@ -15,6 +15,10 @@ import PLSQL from "./courses/PLSQL";
 import HindiEnglishTyping from "./courses/HindiEnglishTyping";
 import CLang from "./courses/CLang";
 import Data from "./courses/Data";
+import Python12 from "./courses/Python12";
+import Python from "./courses/Python";
+import Java12 from "./courses/Java12";
+import Java from "./courses/Java";
 
 export default function CourseDetails() {
     const { courseId } = useParams();
@@ -41,7 +45,11 @@ export default function CourseDetails() {
         oraclePL: <PLSQL />,
         hindiEnglishTyping: <HindiEnglishTyping />,
         c: <CLang />,
-        dataAnalytics: <Data />
+        dataAnalytics: <Data />,
+        python12: <Python12 />,
+        python: <Python />,
+        java12: <Java12 />,
+        java: <Java />
     };
 
     return (

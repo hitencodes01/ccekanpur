@@ -12,7 +12,7 @@ const SLIDES = [
     sub: "Empowering the next generation of digital thinkers — from foundational skills to advanced computing.",
   },
   {
-    img: "/cce1.jpeg",
+    img: "/banner1.jpeg",
     fit: "contain" as const,          // real photo — fill & crop fine
     bg: "#000",
     tag: "Our Community",
@@ -316,7 +316,7 @@ export default function HeroSection() {
             src={slide.img}
             alt=""
             aria-hidden="true"
-            className={`hero-img hero-img-${slide.fit} ${animState}`}
+            className={`hero-img hero-img-${slide.fit} ${animState} `}
             loading="eager"
             decoding="async"
           />

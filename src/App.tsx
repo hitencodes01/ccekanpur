@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='mt-10'>
+      <div className='mt-15'>
         <HeroSection />
       </div>
       <ISOBanner />

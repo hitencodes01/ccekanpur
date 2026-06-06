@@ -4,13 +4,17 @@ import { useEffect, useRef, useState } from "react";
 const SLIDES = [
   {
     img: "/logo.jpeg",
+    fit: "contain" as const,       // logo — show full image, no crop
+    bg: "#0a0a0a",                  // dark bg behind contained logo
     tag: "ISO 9001:2015 Certified",
     heading: ["Centre for", "Computer", "Education"],
     accentIdx: 1,
     sub: "Empowering the next generation of digital thinkers — from foundational skills to advanced computing.",
   },
   {
-    img: "/cce4.webp",
+    img: "/cce1.jpeg",
+    fit: "cover" as const,          // real photo — fill & crop fine
+    bg: "#000",
     tag: "Our Community",
     heading: ["Learn,", "Grow &", "Succeed"],
     accentIdx: 2,
@@ -81,13 +85,20 @@ export default function HeroSection() {
         .hero-img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: center;
           display: block;
           transition: opacity 0.42s ease, transform 0.42s ease;
         }
         .hero-img.out { opacity: 0; transform: scale(1.04); }
         .hero-img.in  { opacity: 1; transform: scale(1); }
+        .hero-img-contain {
+          object-fit: contain;
+          object-position: center;
+          padding: clamp(20px, 4vw, 48px);
+        }
+        .hero-img-cover {
+          object-fit: cover;
+          object-position: center;
+        }
 
         /* Image overlay gradient */
         .hero-left::after {
@@ -299,13 +310,13 @@ export default function HeroSection() {
         <div className="hero-divider" />
 
         {/* LEFT — image */}
-        <div className="hero-left">
+        <div className="hero-left" style={{ background: slide.bg }}>
           <img
             key={`img-${active}`}
             src={slide.img}
             alt=""
             aria-hidden="true"
-            className={`hero-img ${animState}`}
+            className={`hero-img hero-img-${slide.fit} ${animState}`}
             loading="eager"
             decoding="async"
           />

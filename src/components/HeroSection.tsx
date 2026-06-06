@@ -13,7 +13,7 @@ const SLIDES = [
   },
   {
     img: "/cce1.jpeg",
-    fit: "cover" as const,          // real photo — fill & crop fine
+    fit: "contain" as const,          // real photo — fill & crop fine
     bg: "#000",
     tag: "Our Community",
     heading: ["Learn,", "Grow &", "Succeed"],

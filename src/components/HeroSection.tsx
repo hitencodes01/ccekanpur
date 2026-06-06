@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 const SLIDES = [
   {
-    img: "/logo.jpeg",
+    img: "/logo2.png",
     fit: "contain" as const,       // logo — show full image, no crop
     bg: "#0a0a0a",                  // dark bg behind contained logo
     tag: "ISO 9001:2015 Certified",

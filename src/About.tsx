@@ -10,7 +10,7 @@ export default function About() {
       <div className='mt-16'>
         <AboutUs />
       </div>
-      <Gallery/>
+      <Gallery />
       <Footer />
     </>
   )

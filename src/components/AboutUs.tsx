@@ -1,6 +1,7 @@
 import CourseGallery from "@/CourseGallery";
 import { Link } from "react-router-dom";
 import { courses } from "@/lib/courses";
+import ReviewSection from "@/Review";
 
 export default function AboutUs() {
 
@@ -340,11 +341,10 @@ export default function AboutUs() {
                         for every goal and every stage.
                     </p>
                 </div>
-                <CourseGallery css={"mt-1"} />
 
                 {/* Grid */}
 
-                <div className="grid mt-5 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid p-2 rounded-2xl mt-5 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style={{ background: "linear-gradient(135deg,#38bbeb  0%, #0a2e24 100%)", }}>
                     {courses.map((course, index) => (
                         <div
                             key={course.id}
@@ -424,8 +424,10 @@ export default function AboutUs() {
                 </div>
             </section>
 
+            {/* review */}
+            <ReviewSection />
             {/* ── CTA BANNER ── */}
-            <section style={{ padding: "0 24px 80px" }}>
+            <section className="mt-5" style={{ padding: "0 24px 80px" }}>
                 <div
                     style={{
                         maxWidth: 1080,

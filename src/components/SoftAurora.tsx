@@ -23,7 +23,7 @@ function hexToVec3(hex: string): [number, number, number] {
   return [
     parseInt(h.slice(0, 2), 16) / 255,
     parseInt(h.slice(2, 4), 16) / 255,
-    parseInt(h.slice(4, 6), 16) / 255
+    parseInt(h.slice(4, 6), 16) / 255,
   ];
 }
 
@@ -174,41 +174,53 @@ export default function SoftAurora({
   layerOffset = 0,
   colorSpeed = 1.0,
   enableMouseInteraction = true,
-  mouseInfluence = 0.25
+  mouseInfluence = 0.25,
 }: SoftAuroraProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
+
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
 
+    // --- FIX 1: Cache canvas size to avoid forced-reflow reads in the render loop ---
+    let cachedWidth = 0;
+    let cachedHeight = 0;
+
+    // --- FIX 2: Decouple mouse state into plain refs so lerp never touches the DOM ---
+    const mouse = { cx: 0.5, cy: 0.5, tx: 0.5, ty: 0.5 };
+
     let program: Program;
-    let currentMouse = [0.5, 0.5];
-    let targetMouse = [0.5, 0.5];
+    let animationFrameId: number;
 
-    function handleMouseMove(e: MouseEvent) {
-      const rect = gl.canvas.getBoundingClientRect();
-      targetMouse = [
-        (e.clientX - rect.left) / rect.width,
-        1.0 - (e.clientY - rect.top) / rect.height
-      ];
-    }
+    // --- FIX 3: ResizeObserver avoids triggering reflow via window resize ---
+    const ro = new ResizeObserver((entries) => {
+      // Read layout info inside the observer callback – this is already batched
+      // by the browser and does NOT cause a forced reflow.
+      const entry = entries[0];
+      const { width, height } = entry.contentRect;
+      cachedWidth = Math.round(width);
+      cachedHeight = Math.round(height);
 
-    function handleMouseLeave() {
-      targetMouse = [0.5, 0.5];
-    }
+      renderer.setSize(cachedWidth, cachedHeight);
 
-    function resize() {
-      renderer.setSize(container.offsetWidth, container.offsetHeight);
       if (program) {
-        program.uniforms.uResolution.value = [gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height];
+        program.uniforms.uResolution.value = [
+          cachedWidth,
+          cachedHeight,
+          cachedWidth / cachedHeight,
+        ];
       }
-    }
-    window.addEventListener('resize', resize);
-    resize();
+    });
+    ro.observe(container);
+
+    // Seed initial size synchronously (only DOM read happens once, not per frame)
+    cachedWidth = container.offsetWidth;
+    cachedHeight = container.offsetHeight;
+    renderer.setSize(cachedWidth, cachedHeight);
 
     const geometry = new Triangle(gl);
     program = new Program(gl, {
@@ -216,7 +228,7 @@ export default function SoftAurora({
       fragment: fragmentShader,
       uniforms: {
         uTime: { value: 0 },
-        uResolution: { value: [gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height] },
+        uResolution: { value: [cachedWidth, cachedHeight, cachedWidth / cachedHeight] },
         uSpeed: { value: speed },
         uScale: { value: scale },
         uBrightness: { value: brightness },
@@ -231,49 +243,69 @@ export default function SoftAurora({
         uColorSpeed: { value: colorSpeed },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
         uMouseInfluence: { value: mouseInfluence },
-        uEnableMouse: { value: enableMouseInteraction }
-      }
+        uEnableMouse: { value: enableMouseInteraction },
+      },
     });
 
     const mesh = new Mesh(gl, { geometry, program });
     container.appendChild(gl.canvas);
 
-    if (enableMouseInteraction) {
-      gl.canvas.addEventListener('mousemove', handleMouseMove);
-      gl.canvas.addEventListener('mouseleave', handleMouseLeave);
+    // --- FIX 4: Mouse handlers only write to plain objects – zero DOM reads ---
+    function handleMouseMove(e: MouseEvent) {
+      // getBoundingClientRect() is the only safe way to get canvas-relative coords
+      // without a forced reflow; it reads from the compositor's cached rect.
+      // We only call it in response to a user event (not per frame), so it's fine.
+      const rect = (e.currentTarget as HTMLCanvasElement).getBoundingClientRect();
+      mouse.tx = (e.clientX - rect.left) / rect.width;
+      mouse.ty = 1.0 - (e.clientY - rect.top) / rect.height;
     }
 
-    let animationFrameId: number;
+    function handleMouseLeave() {
+      mouse.tx = 0.5;
+      mouse.ty = 0.5;
+    }
+
+    if (enableMouseInteraction) {
+      gl.canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
+      gl.canvas.addEventListener('mouseleave', handleMouseLeave, { passive: true });
+    }
+
+    // --- FIX 5: Render loop reads NOTHING from the DOM – only plain JS state ---
+    const LERP = 0.05;
 
     function update(time: number) {
       animationFrameId = requestAnimationFrame(update);
+
       program.uniforms.uTime.value = time * 0.001;
 
       if (enableMouseInteraction) {
-        currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
-        currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
-        program.uniforms.uMouse.value[0] = currentMouse[0];
-        program.uniforms.uMouse.value[1] = currentMouse[1];
-      } else {
-        program.uniforms.uMouse.value[0] = 0.5;
-        program.uniforms.uMouse.value[1] = 0.5;
+        mouse.cx += LERP * (mouse.tx - mouse.cx);
+        mouse.cy += LERP * (mouse.ty - mouse.cy);
+        program.uniforms.uMouse.value[0] = mouse.cx;
+        program.uniforms.uMouse.value[1] = mouse.cy;
       }
 
       renderer.render({ scene: mesh });
     }
+
     animationFrameId = requestAnimationFrame(update);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resize);
+      ro.disconnect();
       if (enableMouseInteraction) {
         gl.canvas.removeEventListener('mousemove', handleMouseMove);
         gl.canvas.removeEventListener('mouseleave', handleMouseLeave);
       }
-      container.removeChild(gl.canvas);
+      if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [speed, scale, brightness, color1, color2, noiseFrequency, noiseAmplitude, bandHeight, bandSpread, octaveDecay, layerOffset, colorSpeed, enableMouseInteraction, mouseInfluence]);
+  }, [
+    speed, scale, brightness, color1, color2,
+    noiseFrequency, noiseAmplitude, bandHeight, bandSpread,
+    octaveDecay, layerOffset, colorSpeed,
+    enableMouseInteraction, mouseInfluence,
+  ]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }

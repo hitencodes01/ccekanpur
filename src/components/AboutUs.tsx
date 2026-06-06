@@ -1,4 +1,3 @@
-import CourseGallery from "@/CourseGallery";
 import { Link } from "react-router-dom";
 import { courses } from "@/lib/courses";
 import ReviewSection from "@/Review";

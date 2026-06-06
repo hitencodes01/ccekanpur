@@ -18,7 +18,7 @@ const SLIDES = [
   },
 ];
 
-export default function HeroSection({ mounted }: { mounted: boolean }) {
+export default function HeroSection() {
   const [active, setActive] = useState(0);
   const [animState, setAnimState] = useState<"in" | "out">("in");
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
